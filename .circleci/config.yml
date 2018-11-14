@@ -11,7 +11,7 @@ jobs:
               name: Running selenium tests
               background: true
               command: |
-                 echo "xxx test_selenium xxx"
+                 echo "xxx test_selenium xx"
                  pwd
                  ls
 
