@@ -11,6 +11,7 @@ jobs:
               name: Running selenium tests
               background: true
               command: |
+                 pwd
                  ls
 
 workflows:
