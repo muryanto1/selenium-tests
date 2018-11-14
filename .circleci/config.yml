@@ -1,5 +1,10 @@
 version: 2
 
+aliases:
+   - &run_selenium_tests
+     name: run_selenium_tests
+     command: |
+        echo "hello...from test_selenium xxx"
 
 jobs:
    test_selenium:
@@ -7,13 +12,7 @@ jobs:
          - image: selenium/standalone-chrome:3.1.0
       steps:
          - checkout
-         - run:
-              name: Running selenium tests
-              background: true
-              command: |
-                 echo "xxx test_selenium x"
-                 pwd
-                 ls
+         - run: *run_selenium_tests
 
 workflows:
    browser_tests:
