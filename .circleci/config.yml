@@ -17,6 +17,7 @@ jobs:
          - run: *run_selenium_tests
 
 workflows:
+   version: 2
    browser_tests:
       jobs:
          - test_selenium
