@@ -4,14 +4,14 @@ aliases:
    - &run_selenium_tests
      name: run_selenium_tests
      command: |
-        echo "hello...from test_selenium xxx"
+        echo "hello...from test_selenium xxxx"
 
 jobs:
    test_selenium:
       # docker:
       #    - image: selenium/standalone-chrome:3.1.0
-    macos:
-      xcode: "9.2.0"
+      macos:
+         xcode: "9.2.0"
       steps:
          - checkout
          - run: *run_selenium_tests
