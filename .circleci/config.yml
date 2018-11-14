@@ -1,0 +1,19 @@
+version: 2
+
+
+jobs:
+   test_selenium:
+      docker:
+         - image: selenium/standalone-chrome:3.1.0
+      steps:
+         - checkout
+         - run:
+              name: Running selenium tests
+              background: true
+              command: |
+                 ls
+
+workflows:
+   browser_tests:
+      jobs:
+         - test_selenium
