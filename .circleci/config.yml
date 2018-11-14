@@ -4,7 +4,7 @@ aliases:
    - &run_selenium_tests
      name: run_selenium_tests
      command: |
-        echo "hello...from test_selenium xxxx"
+        echo "x hello...from test_selenium xxxx"
 
 jobs:
    test_selenium:
