@@ -1,12 +1,17 @@
 version: 2
 
 aliases:
+   - &setup_for_selenium_tests
+     name: setup_for_selenium_tests
+     command: |
+        pip install pytest
+        pip install pytest-testconfig
+
    - &run_selenium_tests
      name: run_selenium_tests
      command: |
         echo "Vx hello...from test_selenium xxxx"
-	ls
-	type pytest
+        pytest -s -v tests/test_open_google.py
 
 jobs:
    test_selenium:
