@@ -17,6 +17,7 @@ aliases:
    - &start_selenium
      name: start_selenium
      command: |
+        mkdir test-reports
         java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
 
    - &run_selenium_tests
