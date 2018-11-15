@@ -4,6 +4,7 @@ aliases:
    - &setup_for_selenium_tests
      name: setup_for_selenium_tests
      command: |
+        type python
         pip install pytest
         pip install pytest-testconfig
 
@@ -16,7 +17,8 @@ aliases:
 jobs:
    test_selenium:
       docker:
-         - image: selenium/standalone-chrome:3.1.0
+         #- image: selenium/standalone-chrome:3.1.0
+         - image: circleci/python:python-2.7-browsers
       steps:
          - checkout
          - run: *setup_for_selenium_tests
