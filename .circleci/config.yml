@@ -8,8 +8,6 @@ aliases:
 
 jobs:
    test_selenium:
-      # docker:
-      #    - image: selenium/standalone-chrome:3.1.0
       macos:
          xcode: "9.2.0"
       steps:
