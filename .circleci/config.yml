@@ -6,6 +6,7 @@ aliases:
      command: |
         python -m venv venv
         . venv/bin/activate
+        pip install selenium
         pip install pytest
         pip install pytest-testconfig
 
