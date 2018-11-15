@@ -4,8 +4,9 @@ aliases:
    - &setup_for_selenium_tests
      name: setup_for_selenium_tests
      command: |
-        type python
-        python --version
+        pyton -m venv venv
+        . venv/bin/activate
+        pip install -r requirements/dev.txt
         pip install pytest
         pip install pytest-testconfig
 
