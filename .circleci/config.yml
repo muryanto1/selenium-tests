@@ -19,6 +19,7 @@ jobs:
          - image: selenium/standalone-chrome:3.1.0
       steps:
          - checkout
+         - run: *setup_for_selenium_tests
          - run: *run_selenium_tests
 
 workflows:
