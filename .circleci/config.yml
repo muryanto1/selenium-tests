@@ -5,6 +5,8 @@ aliases:
      name: run_selenium_tests
      command: |
         echo "Vx hello...from test_selenium xxxx"
+	ls
+	type pytest
 
 jobs:
    test_selenium:
