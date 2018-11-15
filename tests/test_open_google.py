@@ -19,6 +19,7 @@ class BrowserTest(BaseTestCase):
         print("xxx test_open_google xxx")
         main_page = MainPage(self.driver)
         main_page.load_page("www.google.com")
+        print("xxx after loading page xxx")
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
