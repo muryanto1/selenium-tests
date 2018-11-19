@@ -110,7 +110,7 @@ jobs:
          - run: *setup_miniconda 
          - run: *download_selenium
          - run: *start_selenium
-         #- run: *setup_jupyter_vcdat
+         - run: *setup_jupyter_vcdat
          - run: *setup_for_selenium_tests
          - run: *run_selenium_tests
 
