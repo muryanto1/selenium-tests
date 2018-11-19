@@ -14,16 +14,14 @@ aliases:
         sudo apt-get purge -y firefox
         wget https://sourceforge.net/projects/ubuntuzilla/files/mozilla/apt/pool/main/f/firefox-mozilla-build/firefox-mozilla-build_55.0.1-0ubuntu1_amd64.deb
         sudo dpkg -i firefox-mozilla-build_55.0.1-0ubuntu1_amd64.deb
-        mkdir -p $WORKDIR
-        cd $WORKDIR
         wget https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckodriver-v0.23.0-linux64.tar.gz
-        echo "xxx ls $WORKDIR xxx"
-        ls $WORKDIR
-        gunzip $WORKDIR/geckodriver-v0.23.0-linux64.tar.gz
-        echo "xxx WORKDIR: ${WORKDIR}"
-        ls $WORKDIR
-        cd /usr/local/bin
-        tar -xvf $WORKDIR/geckodriver-v0.23.0-linux64.tar.gz
+        gunzip geckodriver-v0.23.0-linux64.tar.gz
+        tar -xvf geckodriver-v0.23.0-linux64.tar
+        echo "xxx ls"
+        ls
+        echo "xxx pwd"
+        pwd
+        sudo mv geckodriver /usr/local/bin
         export PATH=/usr/local/bin:$PATH
         type geckodriver
         type firefox
