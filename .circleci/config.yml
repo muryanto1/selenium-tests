@@ -16,10 +16,10 @@ aliases:
         sudo dpkg -i firefox-mozilla-build_55.0.1-0ubuntu1_amd64.deb
         mkdir -p $WORKDIR
         cd $WORKDIR
-        wget https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckodriver-v0.23.0-linux64.tar.gz
-        gunzip geckodriver-v0.23.0-linux64.tar.gz
+        wget https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar
+        gunzip geckodriver.tar
         cd /usr/local/bin
-        tar -xvf $WORKDIR/geckodriver-v0.23.0-linux64.tar
+        tar -xvf $WORKDIR/geckodriver.tar
         export PATH=/usr/local/bin:$PATH
         type geckodriver
         type firefox
@@ -83,7 +83,7 @@ aliases:
    - &run_selenium_tests
      name: run_selenium_tests
      command: |
-        export PATH=$WORKDIR/miniconda/bin:$PATH
+        export PATH=$WORKDIR/miniconda/bin:/usr/local/bin:$PATH
         . venv/bin/activate
         echo "Vx hello...from test_selenium xxxx"
         #echo "xxx type geckodriver"
