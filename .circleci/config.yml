@@ -69,10 +69,10 @@ aliases:
         export PATH=$WORKDIR/miniconda/bin:$PATH
         . venv/bin/activate
         echo "Vx hello...from test_selenium xxxx"
-	echo "xxx type geckodriver"
-	type geckodriver
-	echo "xxx firefox --version"
-	firefox --version
+        echo "xxx type geckodriver"
+        type geckodriver
+        echo "xxx firefox --version"
+        firefox --version
         type firefox
         pytest -s -v tests/test_open_google.py
 
