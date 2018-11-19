@@ -95,6 +95,7 @@ jobs:
       steps:
          - checkout
          - run: id
+         - run: *prepare_firefox
          - run: *setup_miniconda 
          - run: *download_selenium
          - run: *start_selenium
