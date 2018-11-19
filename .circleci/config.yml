@@ -72,7 +72,8 @@ jobs:
    test_selenium:
       docker:
          #- image: selenium/standalone-chrome:3.1.0
-         - image: circleci/python:3.6.2-stretch-browsers
+         #- image: circleci/python:3.6.2-stretch-browsers
+         - image: muryanto1/centos_for_jupyter_vcdat
       environment:
          WORKDIR: 'workdir'
       steps:
