@@ -79,9 +79,19 @@ aliases:
         jupyter labextension install .
         echo "xxx jupyter serverextension enable --py vcs_backend xxx"
         jupyter serverextension enable --py vcs_backend
-        echo "xxx jupyter lab xxx"
+        #echo "xxx jupyter lab xxx"
+        #jupyter lab --ip='127.0.0.1'
+
+   - &run_jupyter_vcdat
+     name: run_jupyter_vcdat
+     command: |
+        export PATH=$WORKDIR/miniconda/bin:$PATH
+        export CDAT_ANONYMOUS_LOG=False
+        export $(dbus-launch)
+        export NSS_USE_SHARED_DB=ENABLED
+        source activate jupyter-vcdat
         jupyter lab --ip='127.0.0.1'
-     #background: true
+     background: true
 
    - &run_selenium_tests
      name: run_selenium_tests
@@ -112,6 +122,7 @@ jobs:
          - run: *download_selenium
          - run: *start_selenium
          - run: *setup_jupyter_vcdat
+         - run: *run_jupyter_vcdat
          - run: *setup_for_selenium_tests
          - run: *run_selenium_tests
 
