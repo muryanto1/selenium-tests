@@ -19,7 +19,7 @@ class BrowserTest(BaseTestCase):
         print("xxx test_open_google xxx")
         main_page = MainPage(self.driver)
         #main_page.load_page("www.google.com")
-        main_page.load_page("locahost:8888")
+        main_page.load_page("localhost:8888")
         print("xxx after loading page xxx")
 
 if __name__ == '__main__':
