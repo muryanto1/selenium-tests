@@ -25,14 +25,15 @@ aliases:
      name: download_selenium
      command: |
         cd $WORKDIR
-        curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+        #curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+        curl -O http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar
 
    - &start_selenium
      name: start_selenium
      command: |
         cd $WORKDIR
         mkdir test-reports
-        java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
+        java -jar selenium-server-standalone-3.9.1.jar -log test-reports/selenium.log
      background: true
 
    - &setup_jupyter_vcdat
@@ -86,6 +87,7 @@ jobs:
          WORKDIR: 'workdir'
       steps:
          - checkout
+         - run: id
          - run: *setup_miniconda 
          - run: *download_selenium
          - run: *start_selenium
