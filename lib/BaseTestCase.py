@@ -28,8 +28,8 @@ class BaseTestCase(unittest.TestCase):
         options.add_argument("--headless")
         #options.add_argument("--foreground")
         # TEMPORARY
-        browser = 'chrome'
-
+        #browser = 'chrome'
+        browser = 'firefox'
         if browser == 'chrome':
             #options.binary_location = "/usr/local/bin/chromedriver"
             chrome_options = webdriver.ChromeOptions()
