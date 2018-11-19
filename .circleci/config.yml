@@ -8,6 +8,13 @@ aliases:
       git clone -b validateNightly --depth 1 git@github.com:CDAT/cdat $WORKDIR/cdat
       python $WORKDIR/cdat/scripts/install_miniconda.py -w $WORKDIR -p 'py3'
 
+   - &prepare_firefox
+     name: prepare_firefox
+     command: |
+        sudo apt-get purge -y firefox
+        wget https://sourceforge.net/projects/ubuntuzilla/files/mozilla/apt/pool/main/f/firefox-mozilla-build/firefox-mozilla-build_55.0.1-0ubuntu1_amd64.deb
+        sudo dpkg -i firefox-mozilla-build_55.0.1-0ubuntu1_amd64.deb
+
    - &setup_for_selenium_tests
      name: setup_for_selenium_tests
      command: |
