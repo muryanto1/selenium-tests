@@ -16,8 +16,10 @@ aliases:
         sudo dpkg -i firefox-mozilla-build_55.0.1-0ubuntu1_amd64.deb
         mkdir -p $WORKDIR
         cd $WORKDIR
-        wget https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckodriver-v0.23.0-linux64.tar.gz -O geckodriver.tar.gz
+        wget https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckodriver-v0.23.0-linux64.tar.gz -O $WORKDIR/geckodriver.tar.gz
         gunzip geckodriver.tar.gz
+        echo "xxx WORKDIR: ${WORKDIR}"
+        ls $WORKDIR
         cd /usr/local/bin
         tar -xvf $WORKDIR/geckodriver.tar
         export PATH=/usr/local/bin:$PATH
