@@ -1,9 +1,18 @@
 version: 2
 
 aliases:
+  - &setup_miniconda
+    name: setup_miniconda
+    command: |
+      git clone -b validateNightly --depth 1 git@github.com:CDAT/cdat $WORKDIR/cdat
+      python $WORKDIR/cdat/scripts/install_miniconda.py -w $WORKDIR -p 'py3'
+
    - &setup_for_selenium_tests
      name: setup_for_selenium_tests
      command: |
+        echo "xxx setup_for_selenium_tests xxx"
+        export PATH=$WORKDIR/miniconda/bin:$PATH
+        type python
         python -m venv venv
         . venv/bin/activate
         pip install selenium
@@ -14,11 +23,13 @@ aliases:
    - &download_selenium
      name: download_selenium
      command: |
+        cd $WORKDIR
         curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
 
    - &start_selenium
      name: start_selenium
      command: |
+        cd $WORKDIR
         mkdir test-reports
         java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
      background: true
@@ -26,6 +37,7 @@ aliases:
    - &run_selenium_tests
      name: run_selenium_tests
      command: |
+        export PATH=$WORKDIR/miniconda/bin:$PATH
         . venv/bin/activate
         echo "Vx hello...from test_selenium xxxx"
         pytest -s -v tests/test_open_google.py
@@ -35,8 +47,11 @@ jobs:
       docker:
          #- image: selenium/standalone-chrome:3.1.0
          - image: circleci/python:3.6.2-stretch-browsers
+      environment:
+         WORKDIR: 'workdir'
       steps:
          - checkout
+         - run: *setup_miniconda 
          - run: *download_selenium
          - run: *start_selenium
          - run: *setup_for_selenium_tests
