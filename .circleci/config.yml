@@ -1,7 +1,8 @@
 version: 2
 
 aliases:
-  - &setup_miniconda
+
+   - &setup_miniconda
     name: setup_miniconda
     command: |
       git clone -b validateNightly --depth 1 git@github.com:CDAT/cdat $WORKDIR/cdat
