@@ -81,6 +81,7 @@ aliases:
         jupyter serverextension enable --py vcs_backend
         echo "xxx jupyter lab xxx"
         jupyter lab --ip='127.0.0.1'
+     background: true
 
    - &run_selenium_tests
      name: run_selenium_tests
